@@ -1,0 +1,28 @@
+.reqs {
+  overflow-y: scroll;
+  max-height: 70vh;
+  width: 60%;
+  margin: auto;
+}
+
+.logout:hover {
+  background-color: #63372c;
+}
+
+::-webkit-scrollbar {
+  width: max(1vw, 15px);
+  position: absolute;
+  left: 10vw;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c38d94;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cf808a;
+}

@@ -1,0 +1,17 @@
+.main-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    color: #262322;
+}
+
+.main-content > h1 {
+    font-size: 4rem;
+}
+
+.main-content > p {
+    font-size: 1.8rem;
+}
+

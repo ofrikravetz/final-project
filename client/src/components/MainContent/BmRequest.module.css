@@ -1,0 +1,73 @@
+@media only screen and (max-width: 700px) {
+  .form {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 80%;
+  }
+
+  .headline {
+    width: 60%;
+    margin: auto;
+  }
+}
+
+.form {
+  margin-top: 5vh;
+}
+
+.form label {
+  font-size: 1.3rem;
+}
+
+.form input {
+  text-align: right;
+  font-family: inherit;
+}
+
+.form textarea {
+  font-size: 1.2rem;
+  width: 100%;
+  overflow-y: scroll;
+  font-family: inherit;
+  border-radius: 0.5vmin;
+  border-color: #262322;
+  border-width: 0.1vmin;
+}
+
+.headline h1 {
+  font-size: 2.5rem;
+}
+
+.headline p {
+  font-size: 1.2rem;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  margin-top: 13vh;
+}
+
+.invalid {
+  background-color: #c38d94;
+  border-color: #b46872;
+}
+
+.invalid-p {
+  color: rgb(203, 68, 68);
+  text-align: right;
+  font-weight: bold;
+}
+
+.success {
+  color: rgb(114, 214, 114);
+  font-weight: bold;
+  font-size: 1.3rem;
+}

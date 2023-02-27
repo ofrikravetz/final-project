@@ -1,0 +1,77 @@
+.overlay {
+  z-index: 20;
+  background-color: #262322be;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.message {
+  background-color: white;
+  width: 40%;
+  height: fit-content;
+  z-index: 30;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form.message {
+  text-align: right;
+}
+
+form.message * {
+  display: block;
+  margin: 3vh;
+}
+
+.message button {
+  margin: 3vh auto;
+}
+
+.all {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.explain {
+  margin-top: 5vh;
+}
+
+.explain * {
+  text-align: right;
+  margin: 1vh 3vw;
+}
+
+.explain p {
+  margin-top: 2vh;
+}
+
+.message button:hover {
+  background-color: #63372c;
+}
+
+.message label {
+  font-size: 1.2rem;
+  margin-bottom: 1vh;
+}
+
+.message textarea {
+  margin-top: 0;
+  margin-bottom: 3vh;
+  width: 70%;
+  min-height: 9vh;
+  overflow-y: scroll;
+  font-size: 1.2rem;
+  font-family: inherit;
+}
+
+.select {
+  width: 40%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-family: inherit;
+}

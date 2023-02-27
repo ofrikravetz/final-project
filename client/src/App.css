@@ -1,0 +1,16 @@
+* {
+  direction: rtl;
+}
+
+body {
+  background-color: white;
+}
+
+main {
+  text-align: center;
+  margin-top: max(70px, 14vh);;
+}
+
+button:hover {
+  background-color: #63372c;
+}

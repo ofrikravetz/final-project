@@ -1,0 +1,80 @@
+@media only screen and (max-width: 700px) {
+  .form {
+    width: 80%;
+  }
+}
+
+
+form {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #262322;
+  width: 35%;
+  z-index: 10;
+}
+
+form label {
+  text-align: right;
+  display: block;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 0.5vh;
+}
+
+form > div {
+  margin: 3vmin;
+}
+
+form input {
+  height: max(25px, 4vh);
+  width: 100%;
+  border-radius: 0.5vmin;
+  border-color: #262322;
+  border-width: 0.1vmin;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  background-color: #c97d60;
+  color: white;
+  padding: 2vh 2.5vw;
+  border-radius: 8%;
+  margin: 2vmin;
+  font-weight: bold;
+}
+
+.form button:hover {
+  background-color: #63372c;
+}
+
+input.invalid-form {
+  background-color: #c38d94;
+  border-color: #b46872;
+}
+
+p.invalid-form {
+  color: rgb(203, 68, 68);
+  text-align: right;
+}
+
+.switch-btn {
+  background-color: transparent;
+  color: #262322;
+  display: block;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
+.switch-btn:hover {
+  background-color: transparent !important;
+  color: #b46872;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
