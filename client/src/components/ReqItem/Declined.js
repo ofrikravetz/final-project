@@ -36,7 +36,7 @@ const Declined = (props) => {
         },
         { headers: { Authorization: `Bearer ${authCtx.token}` } }
       );
-      props.forceupdate();
+      props.onReqOpen();
     } catch (e) {
       console.log(e.message);
     }

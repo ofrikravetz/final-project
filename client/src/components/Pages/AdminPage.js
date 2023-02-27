@@ -21,10 +21,6 @@ const AdminPage = () => {
     setReqId(reqid);
   };
 
-  function forceUpdate() {
-    this.forceUpdate();
-  }
-
   const changeHandler = (event) => {
     if (event.currentTarget.id === "type-filter") {
       setTypeFilter(event.target.value);
@@ -75,7 +71,7 @@ const AdminPage = () => {
         </div>
       </div>
       {isOpen && (
-        <Declined onReqOpen={reqOpenHandler} isOpen={isReqOpen} reqId={reqId} forceUpdate={forceUpdate} />
+        <Declined onReqOpen={reqOpenHandler} isOpen={isReqOpen} reqId={reqId} />
       )}
     </>
   );
