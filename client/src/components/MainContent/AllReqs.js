@@ -1,7 +1,10 @@
 import { useEffect, useCallback, useContext, useState } from "react";
+import io from "socket.io-client";
 import AuthContext from "../../store/auth-context";
 import ReqItem from "../ReqItem/ReqItem";
 import axios from "axios";
+
+const socket = io();
 
 const AllReqs = (props) => {
   const [allReqs, setAllReqs] = useState([]);
@@ -11,6 +14,10 @@ const AllReqs = (props) => {
 
   const authCtx = useContext(AuthContext);
   const filters = props.filters;
+
+  socket.on('reqAdded', () => {
+    getReqs();
+  })
 
   const getReqs = useCallback(async () => {
     let url = "api/reqs?";
@@ -41,7 +48,7 @@ const AllReqs = (props) => {
           isOpen: data[key].isOpen,
           declineReason: data[key].declineReason,
           owner: data[key].owner,
-          time: data[key].time
+          time: data[key].time,
         });
       }
       setAllReqs(loadedReqs);

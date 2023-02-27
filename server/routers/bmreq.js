@@ -14,6 +14,8 @@ bmReqRouter.post("/api/reqs", auth, async (req, res) => {
 
   try {
     await bmReq.save();
+    const io = req.app.get('socketio');
+    io.emit('reqAdded');
     res.status(201).send({ bmReq });
   } catch (e) {
     res.status(400).send({ error: e.message });
