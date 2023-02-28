@@ -6,7 +6,6 @@ import axios from "axios";
 const ReqItem = (props) => {
   const authCtx = useContext(AuthContext);
   const [isReqOpen, setIsReqOpen] = useState(false);
-  const [authour, setAuthour] = useState(undefined);
   const reqClass = props.isOpen
     ? ""
     : props.isApproved
@@ -42,21 +41,9 @@ const ReqItem = (props) => {
     day: "2-digit",
   });
 
-  const getAuthour = useCallback(async () => {
-    const url = `/api/reqowner/${props.by}`;
-    try {
-      const res = await axios.get(url);
-      setAuthour(res.data.email);
-    } catch (e) {
-      console.log(e);
-    }
-  }, []);
-
-  useEffect(() => {
-    getAuthour();
-  }, []);
-
-  let divClasses = props.class ? `${classes.item} ${classes[props.class]}` : classes.item;
+  let divClasses = props.class
+    ? `${classes.item} ${classes[props.class]}`
+    : classes.item;
 
   return (
     <>
@@ -67,10 +54,10 @@ const ReqItem = (props) => {
           {reqStatus}
         </button>
       </div>
-      {authour && <div className={classes.detailes}>
-        <p>{`מאת: ${authour}`}</p>
-        <p>{date}</p>
-      </div>}
+        <div className={classes.detailes}>
+          <p>{`מאת: ${props.by}`}</p>
+          <p>{date}</p>
+        </div>
     </>
   );
 };

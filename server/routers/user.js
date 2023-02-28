@@ -6,7 +6,7 @@ import auth from "../middleware/auth.js";
 const userRouter = new express.Router();
 
 userRouter.patch("/api/users", async (req, res) => {
-  const user = await User.findOne({email: req.body.email});
+  const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
     return res.status(404).send();
@@ -15,9 +15,9 @@ userRouter.patch("/api/users", async (req, res) => {
   user.password = req.body.password;
   await user.save();
   const token = await user.generateAuthToken();
-  let expiresIn =  jwt.verify(token, "connection").exp;
+  let expiresIn = jwt.verify(token, "connection").exp;
   res.send({ user, token, expiresIn });
-})
+});
 
 userRouter.post("/api/users/signin", async (req, res) => {
   const user = new User(req.body);
@@ -64,7 +64,7 @@ userRouter.get("/api/user/bmreqs", auth, async (req, res) => {
   try {
     await req.user.populate("bmreqs");
     const bmreqs = req.user.bmreqs;
-    res.send(bmreqs);
+    res.send({bmreqs, user: req.user});
   } catch (e) {
     res.status(500).send({ error: e.message });
   }

@@ -47,7 +47,7 @@ const AllReqs = (props) => {
           isApproved: data[key].isApproved,
           isOpen: data[key].isOpen,
           declineReason: data[key].declineReason,
-          owner: data[key].owner,
+          owner: data[key].owner.email,
           time: data[key].time,
         });
       }

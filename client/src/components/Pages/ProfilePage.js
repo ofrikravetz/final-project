@@ -31,21 +31,21 @@ const ProfilePage = () => {
           Authorization: `Bearer ${authCtx.token}`,
         },
       });
-      const data = res.data;
+      const reqData = res.data.bmreqs;
       setIsLoading(false);
 
       const loadedReqs = [];
 
-      for (const key in data) {
+      for (const key in reqData) {
         loadedReqs.push({
-          id: data[key]._id.toString(),
+          id: reqData[key]._id.toString(),
           key: key,
-          headline: data[key].headline,
-          reason: data[key].reason,
-          isApproved: data[key].isApproved,
-          isOpen: data[key].isOpen,
-          owner: data[key].owner,
-          time: data[key].time
+          headline: reqData[key].headline,
+          reason: reqData[key].reason,
+          isApproved: reqData[key].isApproved,
+          isOpen: reqData[key].isOpen,
+          owner: res.data.user.email,
+          time: reqData[key].time
         });
       }
 

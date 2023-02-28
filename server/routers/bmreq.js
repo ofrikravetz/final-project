@@ -14,15 +14,18 @@ bmReqRouter.post("/api/reqs", auth, async (req, res) => {
 
   try {
     await bmReq.save();
-    const io = req.app.get('socketio');
-    io.emit('reqAdded');
+    const io = req.app.get("socketio");
+    io.emit("reqAdded");
     res.status(201).send({ bmReq });
   } catch (e) {
     res.status(400).send({ error: e.message });
   }
 });
 
-bmReqRouter.get("/api/reqowner/:id", async (req, res) => {
+bmReqRouter.get("/api/reqowner/:id", auth, async (req, res) => {
+  if (!req.user.isAdmin && !req.params.id === req.user._id) {
+    return res.status(401).send();
+  }
   try {
     const user = await User.findOne({ _id: req.params.id });
     if (!user) {
@@ -99,13 +102,14 @@ bmReqRouter.get("/api/reqs", auth, async (req, res) => {
   try {
     const reqs = await BmReq.find({ ...match })
       .limit(limit + 1)
-      .sort({ time: order });
+      .sort({ time: order }).populate('owner');
     if (reqs.length > limit) {
       more = true;
       reqs.length = limit;
     }
     res.send({ reqs, more });
   } catch (e) {
+    console.log(e.message);
     res.status(401).send({ error: e.message });
   }
 });
