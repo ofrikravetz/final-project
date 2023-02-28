@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import AllReqs from "../MainContent/AllReqs";
 import classes from "./AdminPage.module.css";
 import Declined from "../ReqItem/Declined";
@@ -48,7 +48,9 @@ const AdminPage = () => {
             <AllReqs
               reqOpenHandler={reqOpenHandler}
               isFullScreen={isOpen}
-              filters={{ isopen: "true", headline: typeFilter }}
+              filters={useMemo(() => {
+                return { isopen: "true", headline: typeFilter };
+              }, [typeFilter])}
             />
           </div>
         </div>
@@ -65,7 +67,9 @@ const AdminPage = () => {
             <AllReqs
               reqOpenHandler={reqOpenHandler}
               isFullScreen={isOpen}
-              filters={{ sort: timeFilter }}
+              filters={useMemo(() => {
+                return { sort: timeFilter };
+              }, [timeFilter])}
             />
           </div>
         </div>

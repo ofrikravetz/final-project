@@ -3,7 +3,6 @@ import AuthContext from "../../store/auth-context";
 
 import classes from "./Profile.module.css";
 import ReqItem from "../ReqItem/ReqItem";
-import Declined from "../ReqItem/Declined";
 import axios from "axios";
 
 const Profile = (props) => {

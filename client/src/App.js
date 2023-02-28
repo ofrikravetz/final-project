@@ -33,7 +33,7 @@ function App() {
             element={
               <BmRequest
                 name='אישור כניסה לבה"ד'
-                description="בקשת הפנקת אישור כניסה"
+                description="בקשת הנפקת אישור כניסה"
               />
             }
           />

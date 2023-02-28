@@ -86,7 +86,7 @@ button.is-open:hover {
 }
 
 .declined:hover {
-  background-color: rgb(206, 83, 83);
+  background-color: rgb(206, 83, 83) !important;
 }
 
 .admin-open {
@@ -94,7 +94,7 @@ button.is-open:hover {
 }
 
 button.admin-open:hover {
-  background-color: #ce99a0;
+  background-color: #ce99a0 !important;
 }
 
 .detailes {
