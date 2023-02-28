@@ -58,6 +58,8 @@ bmReqRouter.patch("/api/reqs/:id", auth, async (req, res) => {
     }
 
     res.send(bmReq);
+    const io = req.app.get("socketio");
+    io.emit('reqUpdate');
   } catch (e) {
     res.status(400).send();
   }

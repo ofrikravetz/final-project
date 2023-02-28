@@ -19,6 +19,10 @@ const AllReqs = (props) => {
     getReqs();
   })
 
+  socket.on('reqUpdate', () => {
+    getReqs();
+  });
+
   const getReqs = useCallback(async () => {
     let url = "api/reqs?";
     if (filters) {
