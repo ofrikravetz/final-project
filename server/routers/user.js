@@ -64,9 +64,22 @@ userRouter.get("/api/user/bmreqs", auth, async (req, res) => {
   try {
     await req.user.populate("bmreqs");
     const bmreqs = req.user.bmreqs;
-    res.send({bmreqs, user: req.user});
+    res.send({ bmreqs, user: req.user });
   } catch (e) {
     res.status(500).send({ error: e.message });
+  }
+});
+
+userRouter.patch("/api/user/email", auth, async (req, res) => {
+  try {
+    if (!req.body.email) {
+      res.status(400).send("invalid updates");
+    }
+    req.user.email = req.body.email;
+    await req.user.save();
+    res.send(req.user);
+  } catch (e) {
+    res.status(400).send(e.message);
   }
 });
 

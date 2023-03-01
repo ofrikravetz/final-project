@@ -26,3 +26,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #cf808a;
 }
+
+.success {
+  margin-top: 0;
+  color: rgb(125, 170, 57);
+}
+
+.failed {
+  margin-top: 0;
+  color: rgb(207, 90, 90);
+}

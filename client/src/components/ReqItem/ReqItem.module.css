@@ -77,9 +77,12 @@ button.is-open:hover {
 }
 
 .approved {
-  background-color: palegreen;
+  background-color: palegreen !important;
 }
 
+.approved:hover {
+  background-color: palegreen;
+}
 .declined {
   background-color: rgb(255, 111, 111);
   cursor: pointer;

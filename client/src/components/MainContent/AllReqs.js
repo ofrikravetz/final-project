@@ -4,7 +4,7 @@ import AuthContext from "../../store/auth-context";
 import ReqItem from "../ReqItem/ReqItem";
 import axios from "axios";
 
-const socket = io();
+const socket = io.connect("http://localhost:1234");
 
 const AllReqs = (props) => {
   const [allReqs, setAllReqs] = useState([]);
@@ -15,13 +15,15 @@ const AllReqs = (props) => {
   const authCtx = useContext(AuthContext);
   const filters = props.filters;
 
-  socket.on('reqAdded', () => {
-    getReqs();
-  })
+  useEffect(() => {
+    socket.on("reqAdded", () => {
+      getReqs();
+    });
 
-  socket.on('reqUpdate', () => {
-    getReqs();
-  });
+    socket.on("reqUpdate", () => {
+      getReqs();
+    });
+  }, [socket]);
 
   const getReqs = useCallback(async () => {
     let url = "api/reqs?";
